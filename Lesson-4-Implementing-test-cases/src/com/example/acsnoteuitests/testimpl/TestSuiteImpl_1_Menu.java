@@ -92,9 +92,25 @@ public class TestSuiteImpl_1_Menu {
 		utils.checkText("Please send us your feedback or report any problem you meet");
 		utils.checkText("Legal Information");
 		utils.checkText("Attributions");
+		solo.scrollDown();
+		solo.sleep(1000);
+		utils.checkText("View Licence");
 		solo.goBack();
 		solo.waitForActivity(Utils.HOME_ACTIVITY);
 		utils.clickOnText("All Notes");
+	}
+	
+	public void sortNotesMode(){
+		utils.clickOnViewByName("ib_menuMore");
+		utils.checkText("Sort Mode");
+		utils.checkText("By Name");
+		utils.checkText("Modification");
+		utils.checkText("By Reminder");
+		utils.checkText("By Color");
+		utils.checkText("List");
+		utils.checkText("Grid");
+		solo.goBack();
+		solo.waitForActivity(Utils.HOME_ACTIVITY);
 	}
 
 }

@@ -40,4 +40,9 @@ public class TestSuite_1_Menu extends BaseTest
     {
         menu.settingsItems();
     }
+    
+    public void test_04_sortNotesMode()
+    {
+        menu.sortNotesMode();
+    }
 }
