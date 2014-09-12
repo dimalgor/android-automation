@@ -97,5 +97,21 @@ public class Utils extends TestCase {
 		checkText(searchedText, 1, MEDIUM_TIMEOUT);
 		solo.clickOnText(searchedText);
 	}
+	public void clickOnText(int rID) {
+		String searchedText = context.getString(rID);
+		checkText(searchedText, 1, MEDIUM_TIMEOUT);
+		solo.clickOnText(searchedText);
+	}
+	
+	public void checkText(int rID, int minNumberOfMatches, int timeout)
+    {
+        String searchedText = context.getString(rID);
+        checkText(searchedText, minNumberOfMatches, timeout);
+    }
+
+    public void checkText(int rID)
+    {
+    	checkText(rID, 1, MEDIUM_TIMEOUT);
+    }
 
 }

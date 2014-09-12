@@ -45,4 +45,10 @@ public class TestSuite_1_Menu extends BaseTest
     {
         menu.sortNotesMode();
     }
+    
+    public void test_05_createNewNoteMenu()
+    {
+        menu.createNewNoteMenu();
+    }
+    
 }
