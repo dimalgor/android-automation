@@ -20,46 +20,40 @@ from com.android.monkeyrunner import MonkeyRunner, MonkeyDevice
 device = MonkeyRunner.waitForConnection(10)
 
 # initialization
-displayWidth = None;
-displayHeight = None;
-displayDensity = None;
 deviceSceen = None;
+deviceModel = None;
 
 # initialization
 def initDisplayValues():
     global deviceSceen;
+    global deviceModel;
 
+    print("----- displayWidth = " + device.getProperty("display.width"));        
+    print("----- displayHeight = " + device.getProperty("display.height"));        
     deviceModel = device.getProperty("build.model");
-    androidOSVersion = device.getProperty("build.version.release");
-        
-    print("----- displayWidth = " + displayWidth);        
-    print("----- displayHeight = " + displayHeight);        
     print ("----- deviceModel = " + deviceModel);
+    androidOSVersion = device.getProperty("build.version.release");
     print ("----- androidOSVersion = " + androidOSVersion);
     
     dsc = DeviceScreenChooser(deviceModel, androidOSVersion);
     deviceSceen = dsc.getDeviceSceen();
         
     return
-
-# Press on  KEYCODE_DPAD_DOWN 
+ 
 def takePhoto():
-    if(deviceSceen.OPTICAL_TRACK_PAD == True):
-        print("----- press on optical trackball")
-        device.press('KEYCODE_DPAD_CENTER', MonkeyDevice.DOWN_AND_UP)
+    print("----- pressDone takePhoto()")
+    
+    if(str(deviceModel) == "HTC Desire"):
+        device.press('KEYCODE_DPAD_CENTER', MonkeyDevice.DOWN_AND_UP)        
     else:
-        print("----- press on take photo button")
-        # We don't need to distinguish between landscape and portrait here
-        # because the button remains on the same place only [X,Y] system
-        # changes -> the change is done in screen resolution class
         print("----- Take a picture button X = " + str(deviceSceen.TAKE_PICTURE_BUTTON_X));
         print("----- Take a picture button Y = " + str(deviceSceen.TAKE_PICTURE_BUTTON_Y));
         device.touch(deviceSceen.TAKE_PICTURE_BUTTON_X, deviceSceen.TAKE_PICTURE_BUTTON_Y, MonkeyDevice.DOWN_AND_UP)
-    # photo processing can take few seconds ... better to wait
-    MonkeyRunner.sleep(5);
+        
+    MonkeyRunner.sleep(3);
+    
     return
 
-# Press on  Done button
 def pressDone():
     print("----- pressDone button")
     print("----- Done button X = " + str(deviceSceen.CAMERA_SAVE_BUTTON_X))

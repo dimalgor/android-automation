@@ -1,4 +1,4 @@
-package com.qnective.enigma.monkeyrunnerexecutor;
+package com.example.acsnoteuitests.monkeyrunnerexecutor;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -44,7 +44,10 @@ public class MonkeyRunnerExecutor {
                     // look for filtered text in stream
                     if (line.contains(MONKEYRUNNER_TAG)) {
                         if (line.contains("sendPhoto")) {
-                            SCRIPT = "t4_chat_take_photo.py";
+                            SCRIPT = "test_chat_take_photo.py";
+                            executeMonkeyRunnerTest();
+                        } else if (line.contains("goBack")) {
+                            SCRIPT = "goBackCommand.py";
                             executeMonkeyRunnerTest();
                         }
                     }

@@ -26,8 +26,9 @@ class DeviceScreenChooser:
         androidOSVersion = _androidOSVersion;
     
     def getDeviceSceen(self):
-        if (str(deviceModel) == "GT-I9100"):
-            print("----- deviceModel = GT-I9100");
+        device = None;
+        if (str(deviceModel) == "HTC Desire"):
+            print("----- DeviceScreenChooser selected Desire device");
             device = Desire(androidOSVersion, deviceModel);                                           
         elif (str(deviceModel) == "GT-I9100"):
             print("----- deviceSceen = HD(landscape orientation)");

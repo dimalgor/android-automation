@@ -1,4 +1,4 @@
-package com.qnective.enigma.monkeyrunnerexecutor;
+package com.example.acsnoteuitests.monkeyrunnerexecutor;
 
 public final class Configuration {
     public static String SCRIPT_DIR_ENV = "MONKEYRUNNER_SCRIPT";
